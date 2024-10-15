@@ -20,7 +20,7 @@
 | Layer      | Technologies                 |
 |-------------|-----------------------------|
 | **Frontend**| NextJS, Shadcn              |
-| **Veritabanı**| postgreSQL(NeonDB)        |
+| **Backend**| postgreSQL(NeonDB)           |
 | **ORM**| Prisma                           |
 | **Auth**| Next-Auth                       |
 | **UploadImages**| uploadthing             |
