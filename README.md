@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 product management system
 
-## Getting Started
+**Welcome!**  product management system, an application that allows you to easily manage your products
 
-First, run the development server:
+---
+![screencapture-localhost-3000-2024-10-15-22_13_08](https://github.com/user-attachments/assets/20c17e10-bae7-4446-8862-79ea94221765)
 
+## 🚀 Proje Özellikleri
+
+**User Dashboard**: An intuitive interface that enables customers to place orders with ease.
+
+**Modern Design**: A sleek and professional appearance built with Shadcn.
+
+**Next.js with Server Actions**: A secure and efficient server architecture for fast data processin
+
+---
+
+## 📦 Technologies
+
+| Layer      | Technologies                 |
+|-------------|-----------------------------|
+| **Frontend**| NextJS, Shadcn              |
+| **Backend**| postgreSQL(NeonDB)           |
+| **ORM**| Prisma                           |
+| **Auth**| Next-Auth                       |
+| **UploadImages**| uploadthing             |
+| **Server Operation**| Next-Safe-Action    |
+
+---
+
+## 📈 Goals
+
+This project enables you to manage your products by adding, deleting, and monitoring them monthly.
+
+---
+
+## 🔗 Links
+
+- **Live Demo**:
+---
+
+---
+
+## ⚙️ To Run the Project
+1. **First, pull the repo to yourself:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/utkbkts/product-management-system.git
 ```
+2.**Go to the project directory and install the necessary dependencies:**
+ ```bash
+cd frontend
+npm install
+```
+3.**Run the project:**
+ ```bash
+npm run dev
+```
+4.**Compile locally:**
+```bash
+npm run build
+```
+5.**.env-Backend**
+```bash
+DATABASE_URL=""
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+AUTH_SECRET=""
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+UPLOADTHING_SECRET=''
+UPLOADTHING_APP_ID=''
+UPLOADTHING_TOKEN=''
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RESEND_API_KEY=""
+```
