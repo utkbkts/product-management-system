@@ -20,7 +20,7 @@ const Home = async () => {
   const topCustomers = customers
     .sort((a, b) => b.orders - a.orders)
     .slice(0, 4);
-
+  console.log("as");
   const topProducts = products
     .sort((a, b) => b.revenue - a.revenue)
     .slice(0, 4);
