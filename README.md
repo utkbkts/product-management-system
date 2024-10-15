@@ -15,9 +15,9 @@
 
 ---
 
-## 📦 Teknolojiler
+## 📦 Technologies
 
-| Katman      | Teknolojiler                |
+| Layer      | Technologies                |
 |-------------|-----------------------------|
 | **Frontend**| NextJS, Shadcn              |
 | **Veritabanı**| postgreSQL(NeonDB)        |
@@ -34,29 +34,28 @@ This project enables you to manage your products by adding, deleting, and monito
 
 ---
 
-## 🔗 Bağlantılar
+## 🔗 Links
 
-- **Canlı Demo**: [Lezzet Bahçesi](https://lezzetbahcesi.onrender.com)
-
+- **Live Demo**:
 ---
 
 ---
 
-## ⚙️ Projeyi Çalıştırmak İçin
-1. **İlk önce repoyu kendinize çekin:**
+## ⚙️ To Run the Project
+1. **First, pull the repo to yourself:**
 ```bash
 git clone https://github.com/utkbkts/product-management-system.git
 ```
-2.**Proje dizinine gelin ve gerekli bağımlılıkları yükleyin:**
+2.**Go to the project directory and install the necessary dependencies:**
  ```bash
 cd frontend
 npm install
 ```
-3.**Projeyi çalıştırın:**
+3.**Run the project:**
  ```bash
 npm run dev
 ```
-4.**Yerel olarak derleyin:**
+4.**Compile locally:**
 ```bash
 npm run build
 ```
