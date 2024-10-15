@@ -18,6 +18,51 @@ export type Customers = {
   name: string;
   orders: number;
   image: string;
+  isBlocked: boolean;
+};
+
+const CustomerActions = ({
+  customerId,
+  customer,
+  onOpenChange,
+}: {
+  customerId: string;
+  customer: Customers;
+  onOpenChange: (open: boolean) => void;
+}) => {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const handleOpenChange = (open: boolean) => {
+    setOpenDeleteModal(open);
+    onOpenChange(open);
+  };
+
+  return (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onClick={() => handleOpenChange(true)}>
+            {customer.isBlocked ? "Unblock Customer" : "Block Customer"}
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <div className="hidden">
+        <BlockCustomerModal
+          id={customerId}
+          customers={customer}
+          open={openDeleteModal}
+          onOpenChange={handleOpenChange}
+        />
+      </div>
+    </>
+  );
 };
 
 export const columns: ColumnDef<Customers>[] = [
@@ -48,38 +93,18 @@ export const columns: ColumnDef<Customers>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const [openDeletemodal, setOpenDeleteModal] = useState(false);
-      const customers = row.original;
-      const customerId = customers.id;
+      const customer = row.original;
+      const customerId = customer.id;
       if (!customerId) {
-        return;
+        return null;
       }
 
       return (
-        <>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setOpenDeleteModal(true)}>
-                {customers.isBlocked ? "Unblock Customer" : "Block Customer"}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <div className="hidden">
-            <BlockCustomerModal
-              id={customerId}
-              customers={customers}
-              open={openDeletemodal}
-              onOpenChange={setOpenDeleteModal}
-            />
-          </div>
-        </>
+        <CustomerActions
+          customerId={customerId}
+          customer={customer}
+          onOpenChange={() => {}}
+        />
       );
     },
   },

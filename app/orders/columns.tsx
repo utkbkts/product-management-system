@@ -1,91 +1,63 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { formatDate } from "@/utils/formatDate";
-import { formatPrice } from "@/utils/formatPrice";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { MoreHorizontal } from "lucide-react";
 import { useState } from "react";
-import { OrderSchema } from "@/types/order-schema";
 import ViewOrderModal from "@/components/orders/view-order";
 import DeleteOrder from "@/components/orders/delete-order";
+import { z } from "zod";
+import { OrderSchema } from "@/types/order-schema";
 
-export const columns: ColumnDef<z.infer<typeof OrderSchema>>[] = [
-  {
-    accessorKey: "orderNumber",
-    header: "Order Number",
-  },
-  {
-    accessorKey: "totalAmount",
-    header: "Total Amount",
-    cell: ({ row }) => {
-      const totalAmount = row.getValue("totalAmount") as number;
+// Define the Order type according to your OrderSchema
+type OrderType = z.infer<typeof OrderSchema>;
 
-      return <>{formatPrice(totalAmount)}</>;
-    },
-  },
-  {
-    accessorKey: "date",
-    header: "Date",
-    cell: ({ row }) => {
-      const dateTimeStamp = row.getValue("date") as number;
-      const dateObject = new Date(dateTimeStamp);
-      return <span className="text-nowrap">{formatDate(dateObject)}</span>;
-    },
-  },
-  {
-    id: "actions",
-    cell: ({ row }) => {
-      const order = row.original;
-      const orderId = order.id;
-      const [viewModalOpen, setViewModalOpen] = useState(false);
-      const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+type OrderActionsProps = {
+  orderId: number | string;
+  order: OrderType; // Use the correct type here
+};
 
-      if (!orderId) {
-        return;
-      }
+const OrderActions = ({ orderId, order }: OrderActionsProps) => {
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
-      return (
-        <>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setViewModalOpen(true)}>
-                View Order Details
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDeleteModalOpen(true)}>
-                Delete Order
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <div className="hidden">
-            <DeleteOrder
-              id={orderId}
-              open={deleteModalOpen}
-              onOpenChange={setDeleteModalOpen}
-            />
+  return (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onClick={() => setViewModalOpen(true)}>
+            View Order Details
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setDeleteModalOpen(true)}>
+            Delete Order
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <div className="hidden">
+        <DeleteOrder
+          id={String(orderId)} // Convert orderId to a string
+          open={deleteModalOpen}
+          onOpenChange={setDeleteModalOpen}
+        />
+        <ViewOrderModal
+          order={order} // Pass the full order object here
+          open={viewModalOpen}
+          onOpenChange={setViewModalOpen}
+        />
+      </div>
+    </>
+  );
+};
 
-            <ViewOrderModal
-              order={order}
-              open={viewModalOpen}
-              onOpenChange={setViewModalOpen}
-            />
-          </div>
-        </>
-      );
-    },
-  },
-];
+export default OrderActions;
