@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
@@ -36,9 +37,10 @@ const EditProduct = ({
   onOpenChange,
   product,
 }: {
-  id: string | number | undefined;
+  id: any;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  product: any;
 }) => {
   const form = useForm<z.infer<typeof ProductSchema>>({
     resolver: zodResolver(ProductSchema),

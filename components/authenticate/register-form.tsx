@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import * as z from "zod";
 import { useState } from "react";
@@ -42,7 +43,7 @@ const RegisterForm = () => {
         router.push("/login");
       }
     },
-    onError(error) {
+    onError(error: any) {
       setError(error?.message || "Something went wrong.");
     },
     onSettled() {
@@ -56,7 +57,7 @@ const RegisterForm = () => {
 
     try {
       execute(values);
-    } catch (error) {
+    } catch (error: any) {
       setError(error?.message || "Something went wrong.");
     }
   };

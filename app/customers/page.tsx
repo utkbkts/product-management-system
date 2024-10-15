@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AnalyticsCard from "@/components/dashboard/analytics-card";
 import { DataTable } from "@/components/ui/data-table";
 import { columns } from "./columns";
@@ -18,7 +19,7 @@ export default async function CustomersPage() {
         subTitle="Showing all customers with orders"
       >
         <AddCustomerModal />
-        <DataTable columns={columns} data={customers} />
+        <DataTable columns={columns} data={customers as any} />
       </AnalyticsCard>
     </section>
   );

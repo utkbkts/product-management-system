@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
@@ -12,22 +13,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import BlockCustomerModal from "@/components/customer/block-customer";
 import { useState } from "react";
+import { Order } from "../orders/page";
 
-export type Customers = {
+// Define the type for a single customer
+export type Customer = {
   id: string;
   name: string;
-  orders: number;
+  orders: any;
   image: string;
   isBlocked: boolean;
 };
 
+// Update CustomerActions to accept a single Customer
 const CustomerActions = ({
   customerId,
-  customer,
+  customer, // Change 'customers' to 'customer'
   onOpenChange,
 }: {
   customerId: string;
-  customer: Customers;
+  customer: Customer; // Update the type to Customer
   onOpenChange: (open: boolean) => void;
 }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -56,7 +60,7 @@ const CustomerActions = ({
       <div className="hidden">
         <BlockCustomerModal
           id={customerId}
-          customers={customer}
+          customers={customer} // Change 'customers' to 'customer'
           open={openDeleteModal}
           onOpenChange={handleOpenChange}
         />
@@ -65,7 +69,8 @@ const CustomerActions = ({
   );
 };
 
-export const columns: ColumnDef<Customers>[] = [
+// Update the columns definition to reflect the change
+export const columns: ColumnDef<Customer>[] = [
   {
     accessorKey: "name",
     header: "Name",
@@ -93,7 +98,7 @@ export const columns: ColumnDef<Customers>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const customer = row.original;
+      const customer = row.original; // Ensure 'customer' is of type Customer
       const customerId = customer.id;
       if (!customerId) {
         return null;
@@ -102,7 +107,7 @@ export const columns: ColumnDef<Customers>[] = [
       return (
         <CustomerActions
           customerId={customerId}
-          customer={customer}
+          customer={customer} // Change 'customers' to 'customer'
           onOpenChange={() => {}}
         />
       );

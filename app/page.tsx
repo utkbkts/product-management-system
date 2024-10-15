@@ -1,11 +1,8 @@
-import { BarGraph } from "@/components/dashboard/bar-chart";
 import { HorizontalGraph } from "@/components/dashboard/horizontal-bar-chart";
 import { PieGraph } from "@/components/dashboard/pie-chart";
-import { RadarGraph } from "@/components/dashboard/radar-chart";
 import Summary from "@/components/dashboard/summary";
 import { TopCustomers } from "@/components/dashboard/top-customers";
 import { TopProducts } from "@/components/dashboard/top-products";
-import { getUserFind } from "@/server/actions/getuser-action";
 import { auth } from "@/server/auth";
 import { prisma } from "@/server/prismaDB";
 import { redirect } from "next/navigation";

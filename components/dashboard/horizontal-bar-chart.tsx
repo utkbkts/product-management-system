@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
@@ -17,9 +18,9 @@ const chartConfig = {
   // ... You can define other configurations if needed
 } satisfies ChartConfig;
 
-export function HorizontalGraph({ data }) {
+export function HorizontalGraph({ data }: any) {
   // Assuming 'data' is structured as an array of objects with 'location' and 'visitors'
-  const chartData = data.map((item) => ({
+  const chartData = data.map((item: any) => ({
     country: item.location,
     visitors: data.length, // Ensure you have the 'visitors' value
     fill: "#2563EB", // Default color if not provided

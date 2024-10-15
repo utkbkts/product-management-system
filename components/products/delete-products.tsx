@@ -18,7 +18,7 @@ const DeleteProduct = ({
   open,
   onOpenChange,
 }: {
-  id: string | number | undefined;
+  id: any;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) => {

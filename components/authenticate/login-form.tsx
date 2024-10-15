@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { LoginSchema } from "@/types/login-schema";
@@ -37,7 +38,7 @@ export default function LoginForm() {
         setError(data.data.error);
       }
     },
-    onError(error) {
+    onError(error: any) {
       setError(error?.message || "Something went wrong.");
     },
     onSettled() {
@@ -51,7 +52,7 @@ export default function LoginForm() {
 
     try {
       execute(values);
-    } catch (error) {
+    } catch (error: any) {
       setError(error?.message || "Something went wrong.");
     }
   };

@@ -12,6 +12,7 @@ import {
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { blockCustomers } from "@/server/actions/customer-actions";
+import { Customer } from "@/app/customers/columns";
 
 const BlockCustomerModal = ({
   id,
@@ -22,6 +23,7 @@ const BlockCustomerModal = ({
   id: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  customers: Customer;
 }) => {
   const handleDeleteCustomer = () => {
     blockCustomers({ id: id, isBlocked: !customers.isBlocked });

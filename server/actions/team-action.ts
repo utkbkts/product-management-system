@@ -8,7 +8,7 @@ import { sendApprovalEmail, sendDeclineEmail } from "./email";
 
 export const approveTeamMember = actionClient
   .schema(TeamSchema)
-  .action(async ({ parsedInput: { email, name } }) => {
+  .action(async ({ parsedInput: { email, name } }: any) => {
     await prisma.user.update({
       where: { email: email },
       data: { isApproved: true },
@@ -21,7 +21,7 @@ export const approveTeamMember = actionClient
 
 export const declineTeamMember = actionClient
   .schema(TeamSchema)
-  .action(async ({ parsedInput: { email, name } }) => {
+  .action(async ({ parsedInput: { email, name } }: any) => {
     await prisma.user.delete({
       where: { email: email },
     });

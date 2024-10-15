@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Users,
   ArrowUp,
@@ -49,11 +50,14 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
     </div>
   );
 };
-const Summary = ({ products, orders, customers }) => {
+const Summary = ({ products, orders, customers }: any) => {
   console.log("🚀 ~ Summary ~ orders:", orders);
-  const totalProductPrice = products.reduce((acc, item) => acc + item.price, 0);
+  const totalProductPrice = products.reduce(
+    (acc: any, item: any) => acc + item.price,
+    0
+  );
   const totalOrderAmount = orders.reduce(
-    (acc, item) => acc + item.totalAmount,
+    (acc: any, item: any) => acc + item.totalAmount,
     0
   );
 

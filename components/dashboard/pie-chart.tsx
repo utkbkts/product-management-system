@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { LabelList, Pie, PieChart } from "recharts";
@@ -13,8 +14,8 @@ const getRandomColor = () => {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
   return `#${randomColor.padStart(6, "0")}`;
 };
-export function PieGraph({ data }) {
-  const locationCount = data.reduce((acc, item) => {
+export function PieGraph({ data }: any) {
+  const locationCount = data.reduce((acc: any, item: any) => {
     acc[item.location] = (acc[item.location] || 0) + 1;
     return acc;
   }, {});
@@ -52,7 +53,7 @@ export function PieGraph({ data }) {
               className="fill-background"
               stroke="none"
               fontSize={12}
-              formatter={(value) => value}
+              formatter={(value: any) => value}
             />
           </Pie>
         </PieChart>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AnalyticsCard from "@/components/dashboard/analytics-card";
 import { DataTable } from "@/components/ui/data-table";
 import React from "react";
@@ -15,7 +16,7 @@ const Orders = async () => {
   return (
     <AnalyticsCard title="Products" subTitle="Showing All Products">
       <AddProducts />
-      <DataTable columns={columns} data={product} />
+      <DataTable columns={columns} data={product as any} />
     </AnalyticsCard>
   );
 };
