@@ -17,13 +17,13 @@
 
 ## 📦 Technologies
 
-| Layer      | Technologies                |
+| Layer      | Technologies                 |
 |-------------|-----------------------------|
 | **Frontend**| NextJS, Shadcn              |
 | **Veritabanı**| postgreSQL(NeonDB)        |
 | **ORM**| Prisma                           |
 | **Auth**| Next-Auth                       |
-| **ORM**| Prisma                           |
+| **UploadImages**| uploadthing             |
 | **Server Operation**| Next-Safe-Action    |
 
 ---
