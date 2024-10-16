@@ -18,10 +18,12 @@ const ViewOrderModal = ({
   open,
   onOpenChange,
   order,
+  id,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   order: z.infer<typeof OrderSchema>;
+  id: any;
 }) => {
   return (
     <>

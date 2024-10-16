@@ -16,6 +16,7 @@ const Header = (session: HeaderProps) => {
   const [loading, setLoading] = useState(true);
 
   const user = session?.session?.user;
+  console.log("🚀 ~ Header ~ user:", user);
 
   useEffect(() => {
     if (!loginRoute && !onboardingRoute && !registerRoute) {

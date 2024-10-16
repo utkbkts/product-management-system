@@ -36,10 +36,10 @@ const TeamCard = ({ member, isPending, role }: TeamCardProps) => {
 
   //approve team member
   const handleApproveTeamMember = () => {
-    if (!role) {
-      toast.error("You must be an admin to approve a team member");
-      return;
-    }
+    // if (!role) {
+    //   toast.error("You must be an admin to approve a team member");
+    //   return;
+    // }
     approveTeamMember({
       email: member.email,
       name: member.name,
@@ -49,10 +49,10 @@ const TeamCard = ({ member, isPending, role }: TeamCardProps) => {
 
   //block toggle team member
   const handleToggleBlock = () => {
-    if (!role) {
-      toast.error("You must be an admin to approve a team member");
-      return;
-    }
+    // if (!role) {
+    //   toast.error("You must be an admin to approve a team member");
+    //   return;
+    // }
     blockTeamMember({
       email: member.email,
       isBlocked: !member.isBlocked,
@@ -69,10 +69,10 @@ const TeamCard = ({ member, isPending, role }: TeamCardProps) => {
 
   //modal
   const handleEditDeleteModal = (e: React.MouseEvent) => {
-    if (!role) {
-      e.preventDefault();
-      toast.error("You must be an admin to edit a team member.");
-    }
+    // if (!role) {
+    //   e.preventDefault();
+    //   toast.error("You must be an admin to edit a team member.");
+    // }
   };
   //update role
   const handleUpdateRole = () => {

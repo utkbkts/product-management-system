@@ -54,12 +54,18 @@ const OnBoardingForm = (session: OnBoardingFormProps) => {
     },
   });
   const onSubmit = (values: z.infer<typeof OnboardingSchema>) => {
+    if (imageUploading) {
+      setError("Please wait for the image to upload.");
+      return;
+    }
+
     execute(values);
     setError("");
     if (status === "hasSucceeded") {
       router.replace("/");
     }
   };
+
   return (
     <Card className="p-6">
       <Form {...form}>
@@ -124,9 +130,12 @@ const OnBoardingForm = (session: OnBoardingFormProps) => {
                       return;
                     }}
                     onClientUploadComplete={(res) => {
-                      form.setValue("image", res[0].url!);
-                      setImageUploading(false);
-                      return;
+                      if (res && res[0] && res[0].url) {
+                        form.setValue("image", res[0].url!);
+                        setImageUploading(false);
+                      } else {
+                        setError("Image upload failed. Please try again.");
+                      }
                     }}
                   />
                 </div>

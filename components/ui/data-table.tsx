@@ -42,11 +42,11 @@ export function DataTable<TData, TValue>({
       columnFilters,
     },
   });
-
   const dashboardRoute = useRouteCheck([""]);
   const customersRoute = useRouteCheck(["customers"]);
   const ordersRoute = useRouteCheck(["orders"]);
   const productsRoute = useRouteCheck(["products"]);
+  console.log("🚀 ~ columns:", columns);
 
   const columnName = customersRoute
     ? "name"
@@ -55,6 +55,7 @@ export function DataTable<TData, TValue>({
     : productsRoute
     ? "name"
     : "";
+  console.log("🚀 ~ columnName:", columnName);
 
   return (
     <>

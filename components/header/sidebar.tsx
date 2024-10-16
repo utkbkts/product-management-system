@@ -33,8 +33,8 @@ const Sidebar = () => {
         menuOpen ? "max-md:hidden gap-10" : "block justify-between"
       }`}
     >
-      <h2 className={`text-sm max-md:hidden ${menuOpen && "hidden"}`}>
-        Main Navbar
+      <h2 className={`text-xl font-bold max-md:hidden ${menuOpen && "hidden"}`}>
+        Product Management System
       </h2>
       <MenuLinks menuOpen={menuOpen} />
       <LogoutButton />
