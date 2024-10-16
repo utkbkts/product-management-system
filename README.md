@@ -48,7 +48,6 @@ git clone https://github.com/utkbkts/product-management-system.git
 ```
 2.**Go to the project directory and install the necessary dependencies:**
  ```bash
-cd frontend
 npm install
 ```
 3.**Run the project:**
