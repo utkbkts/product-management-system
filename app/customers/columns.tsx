@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import BlockCustomerModal from "@/components/customer/block-customer";
 import { useState } from "react";
-import { Order } from "../orders/page";
 
 // Define the type for a single customer
 export type Customer = {

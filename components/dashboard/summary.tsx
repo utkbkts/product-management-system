@@ -51,7 +51,6 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
   );
 };
 const Summary = ({ products, orders, customers }: any) => {
-  console.log("🚀 ~ Summary ~ orders:", orders);
   const totalProductPrice = products.reduce(
     (acc: any, item: any) => acc + item.price,
     0

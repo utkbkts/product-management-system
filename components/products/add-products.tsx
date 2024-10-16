@@ -56,7 +56,6 @@ const AddProducts = () => {
   });
 
   const onSubmit = (values: z.infer<typeof ProductSchema>) => {
-    console.log("🚀 ~ onSubmit ~ values:", values);
     execute(values);
   };
   return (
